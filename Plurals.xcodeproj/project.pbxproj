@@ -10,6 +10,7 @@
 		81A5D41223C0115B008F57A5 /* Plurals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A5D40823C0115B008F57A5 /* Plurals.framework */; };
 		81A5D41723C0115B008F57A5 /* PluralsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5D41623C0115B008F57A5 /* PluralsTests.swift */; };
 		81A5D41923C0115B008F57A5 /* Plurals.h in Headers */ = {isa = PBXBuildFile; fileRef = 81A5D40B23C0115B008F57A5 /* Plurals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81A5D42323C0128C008F57A5 /* Plurals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5D42223C0128C008F57A5 /* Plurals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,8 @@
 		81A5D41123C0115B008F57A5 /* PluralsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PluralsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A5D41623C0115B008F57A5 /* PluralsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluralsTests.swift; sourceTree = "<group>"; };
 		81A5D41823C0115B008F57A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81A5D42223C0128C008F57A5 /* Plurals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plurals.swift; sourceTree = "<group>"; };
+		81A5D42423C027A3008F57A5 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Playground.playground; path = ../../Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 		81A5D40A23C0115B008F57A5 /* Plurals */ = {
 			isa = PBXGroup;
 			children = (
+				81A5D42223C0128C008F57A5 /* Plurals.swift */,
+				81A5D42423C027A3008F57A5 /* Playground.playground */,
 				81A5D40B23C0115B008F57A5 /* Plurals.h */,
 				81A5D40C23C0115B008F57A5 /* Info.plist */,
 			);
@@ -148,6 +153,7 @@
 				TargetAttributes = {
 					81A5D40723C0115B008F57A5 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 					81A5D41023C0115B008F57A5 = {
 						CreatedOnToolsVersion = 11.3;
@@ -195,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81A5D42323C0128C008F57A5 /* Plurals.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +347,7 @@
 		81A5D41D23C0115B008F57A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = VNA55J4REY;
@@ -356,6 +364,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.Plurals;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +373,7 @@
 		81A5D41E23C0115B008F57A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = VNA55J4REY;
@@ -388,6 +398,7 @@
 		81A5D42023C0115B008F57A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = PluralsTests/Info.plist;
@@ -406,6 +417,7 @@
 		81A5D42123C0115B008F57A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = PluralsTests/Info.plist;
