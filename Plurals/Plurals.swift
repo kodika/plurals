@@ -48,7 +48,9 @@ extension String {
 
 		//check if the end should be an "es" based on the last few letters
 		if ["o", "s", "x", "z"].contains(self.last) ||
-		   ["sh", "ss", "ch"].contains(self.suffix(2)) {
+		   ["sh", "ss", "ch", "is"].contains(self.suffix(2)) {
+			if self.suffix(2) == "is" {
+				return self.dropLast(2) + "es" }
 
 			return self + "es"
 		}

@@ -85,6 +85,18 @@ class PluralsTests: XCTestCase {
 		}
 	}
 
+	func testNounsEndingInIs() {
+		let examples: [(String, String)] = [
+			("analysis", 	"analyses"),
+			("ellipsis", 	"ellipses"),
+		]
+
+		for (singular, plural) in examples {
+			XCTAssertEqual(singular.plural(), plural,
+						   "'\(plural)' is the plural of '\(singular)'.")
+		}
+	}
+
 	func testUnchanging() {
 
 	}
