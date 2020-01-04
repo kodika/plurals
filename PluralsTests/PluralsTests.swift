@@ -56,13 +56,25 @@ class PluralsTests: XCTestCase {
 		}
 	}
 
+	func testNounsEndingInY() {
+		let examples: [(String, String)] = [
+			("city", 	"cities"),
+			("puppy", 	"puppies"),
+			("ray", 	"rays"),
+			("boy", 	"boys"),
+		]
+
+		for (singular, plural) in examples {
+			XCTAssertEqual(singular.plural(), plural,
+						   "'\(plural)' is the plural of '\(singular)'.")
+		}
+	}
+
 	func testUnchanging() {
 
 	}
 
-	func testNounsEndingInY() {
 
-	}
 
 	func testIrregularPlurals() {
 

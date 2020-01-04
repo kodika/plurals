@@ -36,6 +36,13 @@ extension String {
 			return self.dropLast( self.last == "f" ? 1 : 2 ) + "ves"
 		}
 
+		//check if the word ends with 'y' and should be changed to 'ies'
+		if self.last == "y" {
+			if !["a", "e", "i", "o", "o"].contains(Substring(self.suffix(2)).first) {
+				return self.dropLast(1) + "ies"
+			}
+		}
+
 		//When everything else has been tried, just add an "s"
 		return self + "s"
 	}
