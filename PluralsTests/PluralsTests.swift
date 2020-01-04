@@ -33,6 +33,9 @@ class PluralsTests: XCTestCase {
 			("lunch", 	"lunches"),
 			("tax", 	"taxes"),
 			("blintz", 	"blintzes"),
+			("photo", 	"photos"),
+			("potato", 	"potatoes"),
+			("tomato", 	"tomatoes"),
 		]
 
 		for (singular, plural) in examples {
@@ -73,8 +76,6 @@ class PluralsTests: XCTestCase {
 	func testUnchanging() {
 
 	}
-
-
 
 	func testIrregularPlurals() {
 

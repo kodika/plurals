@@ -13,6 +13,9 @@ extension String {
 	func plural() -> String {
 		//words that don't follow the rules
 		let exceptions: [(String, String)] = [
+			("photo", "photos"),
+			("piano", "pianos"),
+			("halo", "halos")
 		]
 
 		//evaluate if there is a match in the exeptions
@@ -23,8 +26,9 @@ extension String {
 		}
 
 		//check if the end should be an "es" based on the last few letters
-		if ["s", "x", "z"].contains(self.last) ||
+		if ["o", "s", "x", "z"].contains(self.last) ||
 		   ["sh", "ss", "ch"].contains(self.suffix(2)) {
+
 			return self + "es"
 		}
 
