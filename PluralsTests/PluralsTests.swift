@@ -41,6 +41,21 @@ class PluralsTests: XCTestCase {
 		}
 	}
 
+	func testNounsEndingInF() {
+		let examples: [(String, String)] = [
+			("wife", 	"wives"),
+			("wolf", 	"wolves"),
+			("roof", 	"roofs"),
+			("belief", 	"beliefs"),
+			("chef", 	"chefs"),
+		]
+
+		for (singular, plural) in examples {
+			XCTAssertEqual(singular.plural(), plural,
+						   "'\(plural)' is the plural of '\(singular)'.")
+		}
+	}
+
 	func testUnchanging() {
 
 	}
@@ -50,10 +65,6 @@ class PluralsTests: XCTestCase {
 	}
 
 	func testIrregularPlurals() {
-
-	}
-
-	func testNounsEndingInF() {
 
 	}
 
