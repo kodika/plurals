@@ -13,10 +13,28 @@ extension String {
 	func plural() -> String {
 		//words that don't follow the rules
 		let exceptions: [(String, String)] = [
-			("photo", "photos"),
-			("piano", "pianos"),
-			("halo", "halos")
+			("photo", 	"photos"),
+			("piano", 	"pianos"),
+			("halo", 	"halos"),
+			("child", 	"children"),
+			("goose", 	"geese"),
+			("man", 	"men"),
+			("woman", 	"women"),
+			("tooth", 	"teeth"),
+			("foot", 	"feet"),
+			("mouse", 	"mice"),
+			("person", 	"people"),
 		]
+		let unchanging: [String] = [
+			"sheep",
+			"series",
+			"species",
+			"deer",
+		]
+
+		if unchanging.contains(self) {
+			return self
+		}
 
 		//evaluate if there is a match in the exeptions
 		//if so, return the plural
@@ -45,6 +63,10 @@ extension String {
 			return self.dropLast(2) + "i"
 		}
 
+		//check if the word ends with 'on' and should be changed to 'a'
+		if self.suffix(2) == "on" {
+			return self.dropLast(2) + "a"
+		}
 
 		//check if the end should be an "es" based on the last few letters
 		if ["o", "s", "x", "z"].contains(self.last) ||

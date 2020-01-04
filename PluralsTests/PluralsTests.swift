@@ -97,12 +97,29 @@ class PluralsTests: XCTestCase {
 		}
 	}
 
-	func testUnchanging() {
+	func testNounsEndingInOn() {
+		let examples: [(String, String)] = [
+			("phenomenon", 	"phenomena"),
+			("criterion", 	"criteria"),
+		]
 
+		for (singular, plural) in examples {
+			XCTAssertEqual(singular.plural(), plural,
+						   "'\(plural)' is the plural of '\(singular)'.")
+		}
 	}
 
-	func testIrregularPlurals() {
+	func testUnchanging() {
+		let examples: [(String, String)] = [
+			("sheep", 	"sheep"),
+			("series", 	"series"),
+			("deer", 	"deer"),
+		]
 
+		for (singular, plural) in examples {
+			XCTAssertEqual(singular.plural(), plural,
+						   "'\(plural)' is the plural of '\(singular)'.")
+		}
 	}
 
 	func testSingular() {
