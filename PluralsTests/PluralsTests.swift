@@ -73,6 +73,18 @@ class PluralsTests: XCTestCase {
 		}
 	}
 
+	func testNounsEndingInUs() {
+		let examples: [(String, String)] = [
+			("cactus", 	"cacti"),
+			("focus", 	"foci"),
+		]
+
+		for (singular, plural) in examples {
+			XCTAssertEqual(singular.plural(), plural,
+						   "'\(plural)' is the plural of '\(singular)'.")
+		}
+	}
+
 	func testUnchanging() {
 
 	}

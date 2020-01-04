@@ -25,13 +25,6 @@ extension String {
 				return plural
 		}
 
-		//check if the end should be an "es" based on the last few letters
-		if ["o", "s", "x", "z"].contains(self.last) ||
-		   ["sh", "ss", "ch"].contains(self.suffix(2)) {
-
-			return self + "es"
-		}
-
 		//check if a trailing 'f' should be changed to 'ves'
 		if !["roof", "belief", "chef", "chief"].contains(self) &&
 			(self.last == "f" ||
@@ -45,6 +38,19 @@ extension String {
 			if !["a", "e", "i", "o", "o"].contains(Substring(self.suffix(2)).first) {
 				return self.dropLast(1) + "ies"
 			}
+		}
+
+		//check if the word ends with 'us' and should be changed to 'i'
+		if self.suffix(2) == "us" {
+			return self.dropLast(2) + "i"
+		}
+
+
+		//check if the end should be an "es" based on the last few letters
+		if ["o", "s", "x", "z"].contains(self.last) ||
+		   ["sh", "ss", "ch"].contains(self.suffix(2)) {
+
+			return self + "es"
 		}
 
 		//When everything else has been tried, just add an "s"
