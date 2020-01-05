@@ -24,14 +24,44 @@ extension String {
 			("foot", 	"feet"),
 			("mouse", 	"mice"),
 			("person", 	"people"),
+			("die", 	"dice"),
+			("louse",	"lice"),
+			("ox",		"oxen"),
 		]
 		let unchanging: [String] = [
 			"sheep",
 			"series",
 			"species",
 			"deer",
+			"aircraft",
+			"deer",
+			"fish",
+			"moose",
+			"offspring",
+			"sheep",
+			"species",
+			"salmon",
+			"trout",
+			"swine",
+			"bison",
+			"corps",
+			"means",
+			"series",
+			"scissors",
 		]
 
+		let rules: [(String, String)] = [
+			("^(|wo|fire)man$", 	"$1men"),
+			("^*(c)hild$", 			"$1hildren"),
+		]
+
+		//check for unique patterns with regex rules
+		for (pattern, template) in rules {
+			guard let regexReplaced = self.replace(with: pattern, template: template) else { continue }
+			if regexReplaced != "" && regexReplaced != self { return regexReplaced }
+		}
+
+		//check if the word does not change in its plural form
 		if unchanging.contains(self) {
 			return self
 		}
@@ -80,6 +110,15 @@ extension String {
 		//When everything else has been tried, just add an "s"
 		return self + "s"
 	}
+
+	func replace(with pattern: String, template: String) -> String? {
+		guard let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+			else { print("regex is invalid: \(pattern)"); return nil }
+
+        let range = NSRange(location: 0, length: self.count)
+        let output = regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: template)
+        return output
+    }
 }
 
 

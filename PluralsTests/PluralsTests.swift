@@ -122,6 +122,21 @@ class PluralsTests: XCTestCase {
 		}
 	}
 
+	func testRegexReplacement() {
+		let examples: [(String, String)] = [
+			("man", 		"men"),
+			("woman", 		"women"),
+			("fireman", 	"firemen"),
+			("child", 		"children"),
+			("schoolchild", "schoolchildren"),
+		]
+
+		for (singular, plural) in examples {
+			XCTAssertEqual(singular.plural(), plural,
+						   "'\(plural)' is the plural of '\(singular)'.")
+		}
+	}
+
 	func testSingular() {
 
 	}
