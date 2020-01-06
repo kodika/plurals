@@ -16,10 +16,7 @@ extension String {
 			("photo", 	"photos"),
 			("piano", 	"pianos"),
 			("halo", 	"halos"),
-			("child", 	"children"),
 			("goose", 	"geese"),
-			("man", 	"men"),
-			("woman", 	"women"),
 			("tooth", 	"teeth"),
 			("foot", 	"feet"),
 			("mouse", 	"mice"),
@@ -51,15 +48,17 @@ extension String {
 		]
 
 		let rules: [(String, String)] = [
-			("^(|wo|fire)man$", 	"$1men"),
-			("^*(c)hild$", 			"$1hildren"),
+			("^*(m)an$", 					"$1en"),		//man 				-> men
+			("^*(c)hild$", 					"$1hildren"),	//child 			-> children
+			("(.{2,})us$", 					"$1i"),			//cactus 			-> cacti
+			("sis$", 						"$1ses"),		//analysis 			-> analyses
+			("(.*)on$", 					"$1a"),			//phenomenon 		-> phenomena
+			("(.*[^aeiou])y$",				"$1ies"),		//city				-> cities
+			("^(roof|belief|chef|chief)$",	"$1s"),			//exceptions to 'f 	-> ves'
+			("(.*)(f|fe)$",					"$1ves"),		//knife 			-> knives
+			("(.*o|s|x|z|sh|ss|ch)$", 		"$1es"),
 		]
 
-		//check for unique patterns with regex rules
-		for (pattern, template) in rules {
-			guard let regexReplaced = self.replace(with: pattern, template: template) else { continue }
-			if regexReplaced != "" && regexReplaced != self { return regexReplaced }
-		}
 
 		//check if the word does not change in its plural form
 		if unchanging.contains(self) {
@@ -73,41 +72,13 @@ extension String {
 				return plural
 		}
 
-		//check if a trailing 'f' should be changed to 'ves'
-		if !["roof", "belief", "chef", "chief"].contains(self) &&
-			(self.last == "f" ||
-		    self.suffix(2) == "fe") {
-
-			return self.dropLast( self.last == "f" ? 1 : 2 ) + "ves"
+		//check through regex rules for which particular pluralization rule to apply
+		for (pattern, template) in rules {
+			guard let regexReplaced = self.replace(with: pattern, template: template) else { continue }
+			if regexReplaced != "" && regexReplaced != self { return regexReplaced }
 		}
 
-		//check if the word ends with 'y' and should be changed to 'ies'
-		if self.last == "y" {
-			if !["a", "e", "i", "o", "o"].contains(Substring(self.suffix(2)).first) {
-				return self.dropLast(1) + "ies"
-			}
-		}
-
-		//check if the word ends with 'us' and should be changed to 'i'
-		if self.suffix(2) == "us" {
-			return self.dropLast(2) + "i"
-		}
-
-		//check if the word ends with 'on' and should be changed to 'a'
-		if self.suffix(2) == "on" {
-			return self.dropLast(2) + "a"
-		}
-
-		//check if the end should be an "es" based on the last few letters
-		if ["o", "s", "x", "z"].contains(self.last) ||
-		   ["sh", "ss", "ch", "is"].contains(self.suffix(2)) {
-			if self.suffix(2) == "is" {
-				return self.dropLast(2) + "es" }
-
-			return self + "es"
-		}
-
-		//When everything else has been tried, just add an "s"
+		//If there isn't a rule or exception available, just add an "s" as the default
 		return self + "s"
 	}
 
