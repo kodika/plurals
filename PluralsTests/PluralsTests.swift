@@ -27,9 +27,9 @@ class PluralsTests: XCTestCase {
 
 	func testAddingES() {
 		let examples: [(String, String)] = [
+			("marsh", 	"marshes"),
 			("truss", 	"trusses"),
 			("bus", 	"buses"),
-			("marsh", 	"marshes"),
 			("lunch", 	"lunches"),
 			("tax", 	"taxes"),
 			("blintz", 	"blintzes"),
@@ -59,8 +59,9 @@ class PluralsTests: XCTestCase {
 		}
 	}
 
-	func testNounsEndingInF() {
+	func testEndingInF() {
 		let examples: [(String, String)] = [
+			("knife", 	"knives"),
 			("wife", 	"wives"),
 			("wolf", 	"wolves"),
 			("roof", 	"roofs"),
@@ -75,7 +76,7 @@ class PluralsTests: XCTestCase {
 		}
 	}
 
-	func testNounsEndingInY() {
+	func testEndingInY() {
 		let examples: [(String, String)] = [
 			("city", 	"cities"),
 			("puppy", 	"puppies"),
@@ -89,7 +90,7 @@ class PluralsTests: XCTestCase {
 		}
 	}
 
-	func testNounsEndingInUs() {
+	func testEndingInUs() {
 		let examples: [(String, String)] = [
 			("cactus", 	"cacti"),
 			("focus", 	"foci"),
@@ -101,19 +102,7 @@ class PluralsTests: XCTestCase {
 		}
 	}
 
-	func testNounsEndingInIs() {
-		let examples: [(String, String)] = [
-			("analysis", 	"analyses"),
-			("ellipsis", 	"ellipses"),
-		]
-
-		for (singular, plural) in examples {
-			XCTAssertEqual(singular.plural(), plural,
-						   "'\(plural)' is the plural of '\(singular)'.")
-		}
-	}
-
-	func testNounsEndingInOn() {
+	func testEndingInOn() {
 		let examples: [(String, String)] = [
 			("phenomenon", 	"phenomena"),
 			("criterion", 	"criteria"),
@@ -124,6 +113,19 @@ class PluralsTests: XCTestCase {
 						   "'\(plural)' is the plural of '\(singular)'.")
 		}
 	}
+
+	func testEndingInIum() {
+		let examples: [(String, String)] = [
+			("millenium", 	"millenia"),
+			("criterion", 	"criteria"),
+		]
+
+		for (singular, plural) in examples {
+			XCTAssertEqual(singular.plural(), plural,
+						   "'\(plural)' is the plural of '\(singular)'.")
+		}
+	}
+
 
 	func testUnchanging() {
 		let examples: [(String, String)] = [
@@ -155,13 +157,28 @@ class PluralsTests: XCTestCase {
 
 	func testExceptions() {
 		let examples: [(String, String)] = [
-			("photo", 		"photos"),
+			("roof", 		"roofs"),
+			("vertebra", 	"vertebrae"),
 			("ox", 			"oxen"),
-			("die", 		"dice"),
-			("hotfoot", 	"hotfeet"),
-			("moose", 		"moose"),
+			("axis", 		"axes"),
+			("tableau", 	"tableaux"),
 			("goose", 		"geese"),
-			("hoof", 		"hooves"),
+			("moose", 		"moose"),
+			("foot", 		"feet"),
+			("hotfoot", 	"hotfeet"),
+			("tooth", 		"teeth"),
+			("die", 		"dice"),
+			("this", 		"these"),
+			("genus", 		"genera"),
+			("fungus", 		"fungi"),
+			("index", 		"indices"),
+			("appendix", 	"appendices"),
+			("photo", 		"photos"),
+			("torpedo", 	"torpedoes"),
+			("corpus", 		"corpora"),
+			("that", 		"those"),
+			("apparatus", 	"apparatuses"),
+			("analysis", 	"analyses"),
 		]
 
 		for (singular, plural) in examples {

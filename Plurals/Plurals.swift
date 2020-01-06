@@ -37,18 +37,20 @@ extension String {
 			///Exceptions
 			//exceptions are compared against the current spellings on https://www.merriam-webster.com;
 			//words with multiple acceptable spellings are not considered exeptional
+			//this is probably not exhaustive.  If you find a word (or a few) that should be added, please submit a pull request
 			//in an effort to keep these organized, they are loosely sorted alphabetically of their pluralized ending
 			("^(roof|belief|chef|chief)$",								"$1s"),					//exceptions to 'f 	-> ves'
 			("^(alg|vertebr|vit|alumn|nebul)a$", 						"$1ae"),				//vertebra 			-> vertebrae
 			("^(ox)$",													"$1en"),				//ox				-> oxen
 			("(ax)is$",													"$1es"),				//axis				-> axes
+			("^(apparat)us$", 											"$1uses"),				//apparatus 		-> apparatuses
 			("^(b|tabl)eau$", 											"$1eaux"),				//tableau 			-> tableaux
 			("(g)oose$",												"$1eese"),				//goose				-> geese
 			("(f)oot$",													"$1eet"),				//foot				-> feet
 			("(t)ooth$",												"$1eeth"),				//tooth				-> teeth
 			("^(th)is$", 												"$1ese"),				//this 				-> these
 			("^(gen)us$", 												"$1era"),				//genus 			-> genera
-			("(.{2,})us$", 												"$1i"),					//cactus 			-> cacti
+			("(alumn|bacill|fung|radi|stimul)us$",						"$1i"),					//fungus 			-> fungi
 			("(m|l)ouse$",												"$1ice"),				//mouse				-> mice
 			("^(d)ie$",													"$1ice"),				//die				-> dice
 			("^(ind|append)ex$", 										"$1ices"),				//index 			-> indices
@@ -58,7 +60,6 @@ extension String {
 			("^(corp)us$",												"$1ora"),				//corpus			-> corpora
 			("^(th)at$", 												"$1ose"),				//that 				-> those
 			("sis$", 													"$1ses"),				//analysis 			-> analyses
-			("^(apparat)us$", 											"$1uses"),				//apparatus 		-> apparatuses
 
 			///General Rules
 			("(.*)on$", 												"$1a"),					//phenomenon 		-> phenomena
