@@ -44,6 +44,21 @@ class PluralsTests: XCTestCase {
 		}
 	}
 
+	func testEndingInO() {
+		let examples: [(String, String)] = [
+			("banjo", 	 "banjoes"),
+			("zoo", 	 "zoos"),
+			("taco", 	 "tacos"),
+			("mosquito", "mosquitoes"),
+
+		]
+
+		for (singular, plural) in examples {
+			XCTAssertEqual(singular.plural(), plural,
+						   "'\(plural)' is the plural of '\(singular)'.")
+		}
+	}
+
 	func testNounsEndingInF() {
 		let examples: [(String, String)] = [
 			("wife", 	"wives"),
@@ -51,6 +66,7 @@ class PluralsTests: XCTestCase {
 			("roof", 	"roofs"),
 			("belief", 	"beliefs"),
 			("chef", 	"chefs"),
+			("thief",	"thieves"),
 		]
 
 		for (singular, plural) in examples {
@@ -139,11 +155,13 @@ class PluralsTests: XCTestCase {
 
 	func testExceptions() {
 		let examples: [(String, String)] = [
+			("photo", 		"photos"),
 			("ox", 			"oxen"),
 			("die", 		"dice"),
 			("hotfoot", 	"hotfeet"),
 			("moose", 		"moose"),
 			("goose", 		"geese"),
+			("hoof", 		"hooves"),
 		]
 
 		for (singular, plural) in examples {
