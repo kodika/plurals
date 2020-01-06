@@ -137,6 +137,20 @@ class PluralsTests: XCTestCase {
 		}
 	}
 
+	func testExceptions() {
+		let examples: [(String, String)] = [
+			("ox", 			"oxen"),
+			("die", 		"dice"),
+			("hotfoot", 	"hotfeet"),
+			("moose", 		"moose"),
+			("goose", 		"geese"),
+		]
+
+		for (singular, plural) in examples {
+			XCTAssertEqual(singular.plural(), plural,
+						   "'\(plural)' is the plural of '\(singular)'.")
+		}
+	}
 	func testSingular() {
 
 	}

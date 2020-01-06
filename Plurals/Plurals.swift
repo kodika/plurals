@@ -11,20 +11,6 @@ import Foundation
 
 extension String {
 	func plural() -> String {
-		//words that don't follow the rules
-		let exceptions: [(String, String)] = [
-			("photo", 	"photos"),
-			("piano", 	"pianos"),
-			("halo", 	"halos"),
-			("goose", 	"geese"),
-			("tooth", 	"teeth"),
-			("foot", 	"feet"),
-			("mouse", 	"mice"),
-			("person", 	"people"),
-			("die", 	"dice"),
-			("louse",	"lice"),
-			("ox",		"oxen"),
-		]
 		let unchanging: [String] = [
 			"sheep",
 			"series",
@@ -48,28 +34,35 @@ extension String {
 		]
 
 		let rules: [(String, String)] = [
+			///exceptions
+			("^(roof|belief|chef|chief)$",	"$1s"),			//exceptions to 'f 	-> ves'
+			("(ax)is$",						"$1es"),		//axis				-> axes
+			("(phot|pian|hal)o$",			"$1os"),		//photo				-> photos
+			("(g)oose$",					"$1eese"),		//goose				-> geese
+			("(t)ooth$",					"$1eeth"),		//tooth				-> teeth
+			("(f)oot$",						"$1eet"),		//foot				-> feet
+			("(m)ouse$",					"$1ice"),		//mouse				-> mice
+			("(pe)rson$",					"$1ople"),		//person			-> people
+			("(d)ie$",						"$1ice"),		//die				-> dice
+			("(l)ouse$",					"$1ice"),		//louse				-> lice
+			("^(ox)$",						"$1en"),		//die				-> dice
+
+			///special rules
 			("^*(m)an$", 					"$1en"),		//man 				-> men
 			("^*(c)hild$", 					"$1hildren"),	//child 			-> children
 			("(.{2,})us$", 					"$1i"),			//cactus 			-> cacti
+
+			///general rules
 			("sis$", 						"$1ses"),		//analysis 			-> analyses
 			("(.*)on$", 					"$1a"),			//phenomenon 		-> phenomena
 			("(.*[^aeiou])y$",				"$1ies"),		//city				-> cities
-			("^(roof|belief|chef|chief)$",	"$1s"),			//exceptions to 'f 	-> ves'
 			("(.*)(f|fe)$",					"$1ves"),		//knife 			-> knives
 			("(.*o|s|x|z|sh|ss|ch)$", 		"$1es"),
 		]
 
-
 		//check if the word does not change in its plural form
 		if unchanging.contains(self) {
 			return self
-		}
-
-		//evaluate if there is a match in the exeptions
-		//if so, return the plural
-		for (exception, plural) in exceptions {
-			guard self == exception else { continue }
-				return plural
 		}
 
 		//check through regex rules for which particular pluralization rule to apply
