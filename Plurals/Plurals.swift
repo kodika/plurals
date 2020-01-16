@@ -12,25 +12,21 @@ import Foundation
 extension String {
 	func plural() -> String {
 		let unchanging: [String] = [
-			"sheep",
-			"series",
-			"species",
-			"deer",
 			"aircraft",
-			"deer",
-			"fish",
-			"moose",
-			"offspring",
-			"sheep",
-			"species",
-			"salmon",
-			"trout",
-			"swine",
 			"bison",
 			"corps",
+			"deer",
+			"fish",
 			"means",
-			"series",
+			"moose",
+			"offspring",
+			"salmon",
 			"scissors",
+			"series",
+			"sheep",
+			"species",
+			"swine",
+			"trout",
 		]
 
 		let rules: [(String, String)] = [
@@ -39,7 +35,7 @@ extension String {
 			//words with multiple acceptable spellings are not considered exeptional
 			//this is probably not exhaustive.  If you find a word (or a few) that should be added, please submit a pull request
 			//in an effort to keep these organized, they are loosely sorted alphabetically of their pluralized ending
-			("^(roof|belief|chef|chief)$",								"$1s"),					//exceptions to 'f 	-> ves'
+			("^(woof|roof|belief|chef|chief)$",							"$1s"),					//exceptions to 'f 	-> ves'
 			("^(alg|vertebr|vit|alumn|nebul)a$", 						"$1ae"),				//vertebra 			-> vertebrae
 			("^(ox)$",													"$1en"),				//ox				-> oxen
 			("(ax)is$",													"$1es"),				//axis				-> axes
