@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "Plurals"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.swift_versions = "5.0"
   spec.summary      = "A function that extends String to include the ability to return the plural form of a single word."
 
