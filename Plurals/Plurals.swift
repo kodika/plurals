@@ -10,7 +10,7 @@ import Foundation
 
 
 extension String {
-	func plural() -> String {
+	public func plural() -> String {
 		let unchanging: [String] = [
 			"aircraft",
 			"bison",
@@ -35,9 +35,9 @@ extension String {
 			//words with multiple acceptable spellings are not considered exeptional
 			//this is probably not exhaustive.  If you find a word (or a few) that should be added, please submit a pull request
 			//in an effort to keep these organized, they are loosely sorted alphabetically of their pluralized ending
-			("^(woof|roof|belief|chef|chief)$",							"$1s"),					//exceptions to 'f 	-> ves'
-			("^(alg|vertebr|vit|alumn|nebul)a$", 						"$1ae"),				//vertebra 			-> vertebrae
-			("^(ox)$",													"$1en"),				//ox				-> oxen
+			("^(woof|roof|belief|chef|chief)$",                         "$1s"),                 //exceptions to 'f  -> ves'
+			("^(alg|vertebr|vit|alumn|nebul)a$",                        "$1ae"),                //vertebra          -> vertebrae
+			("^(ox)$",                                                  "$1en"),                //ox                -> oxen
 			("(ax)is$",													"$1es"),				//axis				-> axes
 			("^(apparat)us$", 											"$1uses"),				//apparatus 		-> apparatuses
 			("^(b|tabl)eau$", 											"$1eaux"),				//tableau 			-> tableaux
