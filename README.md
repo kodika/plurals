@@ -1,5 +1,5 @@
 # Plurals
-A framework for generating the plural form of any particular English noun
+A String extension for generating the plural form of any particular English noun
 
 # Usage
 
