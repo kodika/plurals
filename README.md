@@ -3,9 +3,10 @@ A String extension for generating the plural form of any particular English noun
 
 # Usage
 
-1. In your Podfile, include `pod Plurals` and run `pod install`
+1. In your Podfile, include `pod Plurals` and run `pod install`.  Comment out `use_frameworks!`, if enabled.
 1. At the top of the file where you intend to use the library, include `import Plurals`
 2. "person".plural()    //returns "people"
+
 
 # Contribution
 If you notice that a rule is missing from this library, please submit a pull request including the regex rule to the library.
