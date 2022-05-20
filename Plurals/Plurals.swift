@@ -56,9 +56,10 @@ extension String {
 			("^(corp)us$",												"$1ora"),				//corpus			-> corpora
 			("^(th)at$", 												"$1ose"),				//that 				-> those
 			("sis$", 													"$1ses"),				//analysis 			-> analyses
+            ("(foc|cact)us",                                            "$1i"),                 //focus             -> foci || cactus -> cacti
+            ("(phenomen|criteri)on",                                    "$1a"),                 //phenomenon        -> phenomena || criterion -> criteria
 
 			///General Rules
-			("(.*)on$", 												"$1a"),					//phenomenon 		-> phenomena
 			("(.*)(f|fe)$",												"$1ves"),				//knife 			-> knives
 			("(.*s|x|z|sh|ss|ch)$", 									"$1es"),				//marsh				-> marshes
 			("^*(m)an$", 												"$1en"),				//man 				-> men

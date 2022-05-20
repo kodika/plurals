@@ -179,6 +179,7 @@ class PluralsTests: XCTestCase {
 			("that", 		"those"),
 			("apparatus", 	"apparatuses"),
 			("analysis", 	"analyses"),
+            ("person",      "people"),
 		]
 
 		for (singular, plural) in examples {
